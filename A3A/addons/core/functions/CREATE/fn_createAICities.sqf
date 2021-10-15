@@ -61,7 +61,6 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 			[_dog] spawn A3A_fnc_guardDog;
 			};
 		};
-	_nul = [leader _groupX, _markerX, "SAFE", "RANDOM", "SPAWNED","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 	_groups pushBack _groupX;
 	_countX = _countX + 1;
 	};

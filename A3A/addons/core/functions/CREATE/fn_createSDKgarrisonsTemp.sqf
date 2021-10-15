@@ -26,14 +26,10 @@ if (_typeX isEqualType "") then {
 
     if (_typeX == FactionGet(reb,"unitCrew")) then {
         private _veh = FactionGet(reb,"staticMortar") createVehicle _positionX;
-        _nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+        //_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
         _unit assignAsGunner _veh;
         _unit moveInGunner _veh;
         [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
-    };
-
-    if (_groups isEqualTo []) then {
-        _nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
     };
 
     [_unit,_markerX] spawn {

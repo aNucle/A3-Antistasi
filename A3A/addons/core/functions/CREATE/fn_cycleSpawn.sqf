@@ -106,7 +106,6 @@ _lineIndex = 0;
         ];
         sleep 0.25;
     } forEach _crewArray;
-    [leader _groupX, _marker, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 
 
     private _forcePatrol = ((count _allGroups) > ((count _patrolGroups) * 3));
@@ -171,13 +170,6 @@ if(((_patrolMarkerSize select 0) < (_mainMarkerSize select 0)) || {(_patrolMarke
 };
 _patrolMarker setMarkerSizeLocal _patrolMarkerSize;
 
-{
-  [leader _x, _marker, "SAFE", "SPAWNED", "RANDOM", "NOFOLLOW", "NOVEH"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
-} forEach _stayGroups;
-
-{
-  [leader _x, _patrolMarker, "SAFE", "SPAWNED", "RANDOM","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
-} forEach _patrolGroups;
 
 /*
 waitUntil {sleep 5; (spawner getVariable _marker == 2)};

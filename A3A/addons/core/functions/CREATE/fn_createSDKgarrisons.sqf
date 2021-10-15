@@ -58,7 +58,6 @@ if (_markerX != "Synd_HQ") then
 					};
 				};
 				//_nul = [_markerX,_civs] spawn destroyCheck;
-				_nul = [leader _groupCiv, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOSHARE","DORELAX","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 			};
 		};
 	};
@@ -84,7 +83,7 @@ if (_typeCrew in _garrison) then
 		private _pos = [_positionX] call A3A_fnc_mortarPos;
 		private _veh = FactionGet(reb,"staticMortar") createVehicle _pos;
 		_vehiclesX pushBack _veh;
-		_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+		//_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
 		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
@@ -104,7 +103,7 @@ if (_typeCrew in _garrison) then
 		if (isNull _groupMortars) then { _groupMortars = createGroup teamPlayer };
 		_unit = [_groupMortars, (_garrison select _index), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _x;
-		_nul=[_x] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+		//_nul=[_x] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
 	}
 	else
 	{
@@ -147,14 +146,6 @@ while {(spawner getVariable _markerX != 2) and (_countUnits < _totalUnits)} do
 for "_i" from 0 to (count _groups) - 1 do
 {
 	_groupX = _groups select _i;
-	if (_i == 0) then
-	{
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOMUP","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
-	}
-	else
-	{
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
-	};
 };
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
